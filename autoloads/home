@@ -1,0 +1,19 @@
+# autoload
+
+home () {
+  
+  local session_name="$(tmux display-message -p "#S")"
+  
+  local session_dir
+
+  if [[ $session_name == 'home' ]]; then
+    session_dir="$HOME"
+  else
+    session_dir="$TMUX_SESSION_HOME"
+  fi
+
+  cd -- "$session_dir"
+
+}
+
+home

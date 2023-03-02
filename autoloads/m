@@ -1,0 +1,17 @@
+# autoload
+
+m() {
+
+  local START_DIR
+
+  START_DIR=${PWD}
+
+  cd -- $HOME
+
+  /usr/bin/neomutt
+
+  cd -- ${START_DIR}
+
+}
+
+m

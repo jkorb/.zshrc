@@ -1,0 +1,30 @@
+mailsync() {
+  local index=0
+
+  local DAVMAILD_PATH="zsh /home/jkorbmacher/.local/bin/davmaild"
+
+  if ! pgrep -f $DAVMAILD_PATH &> /dev/null; then
+    nohup /home/jkorbmacher/.local/bin/davmaild &> /dev/null &
+  fi
+
+  while pgrep -x mbsync &> /dev/null; do
+    sleep 1
+    ((index+=1))
+    if [[ $index = 180 ]]; then
+      kill $(pgrep -x mbsync) &> /dev/null
+    fi
+  done
+
+  mbsync uu #&> /dev/null
+  
+  index=0
+  while pgrep -x mu &> /dev/null; do
+    sleep 1
+    if [[ $index = 120 ]]; then
+      kill $(pgrep -x mu) &> /dev/null
+    fi
+  done
+
+  mu -qq index &> /dev/null
+
+}
