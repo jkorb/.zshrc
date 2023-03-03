@@ -8,7 +8,7 @@ fpath+=$ZDOTDIR/autoloads
 autoload -Uz $ZDOTDIR/autoloads/*
 
 if [[ $OSTYPE == "darwin22.0" ]]; then
-  PATH="/opt/homebrew/sbin:$PATH"
+  PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 fi
 
 source "$ZCOREDIR/core.zsh"
