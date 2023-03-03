@@ -36,7 +36,7 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 source /usr/share/fzf/key-bindings.zsh
-source /home/jkorbmacher/.local/share/zinit/plugins/lincheney---fzf-tab-completion/zsh/fzf-zsh-completion.sh
+source $HOME/.local/share/zinit/plugins/lincheney---fzf-tab-completion/zsh/fzf-zsh-completion.sh
 
 zle     -N            fzf-goto-dir-widget
 
