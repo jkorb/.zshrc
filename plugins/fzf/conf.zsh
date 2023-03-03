@@ -16,6 +16,8 @@ FZF_DEFAULT_OPTS+="
 
   # ",alt-space:clear-selection"
 
+[[ -d $XDG_CACHE_DIR/fzf ]] && mkdir $XDG_CACHE_DIR/fzf
+
 FZF_DEFAULT_OPTS+="
   --history=$XDG_CACHE_DIR/fzf/history
   --history-size=1000000000"
