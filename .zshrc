@@ -7,7 +7,7 @@ export ZPLUGINDIR=$ZDOTDIR/plugins
 fpath+=$ZDOTDIR/autoloads
 autoload -Uz $ZDOTDIR/autoloads/*
 
-if [[ $OSTYPE == "darwin22.0" ]]; then
+if uname | grep -q Darwin &> /dev/null; then
   PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 fi
 
