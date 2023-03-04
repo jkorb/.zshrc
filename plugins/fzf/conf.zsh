@@ -16,7 +16,7 @@ FZF_DEFAULT_OPTS+="
 
   # ",alt-space:clear-selection"
 
-[[ -d $XDG_CACHE_DIR/fzf ]] && mkdir $XDG_CACHE_DIR/fzf
+[[ ! -d $XDG_CACHE_DIR/fzf ]] && mkdir $XDG_CACHE_DIR/fzf
 
 FZF_DEFAULT_OPTS+="
   --history=$XDG_CACHE_DIR/fzf/history
@@ -37,8 +37,15 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
-source /usr/share/fzf/key-bindings.zsh
-source $HOME/.local/share/zinit/plugins/lincheney---fzf-tab-completion/zsh/fzf-zsh-completion.sh
+if uname | grep -q Linux &> /dev/null; then
+  source /opt/homebrew/Cellar/fzf/$(fzf --version | cut -d " " -f 1)/shell/key-bindings.zsh
+  source $HOME/.local/share/zinit/plugins/lincheney---fzf-tab-completion/zsh/fzf-zsh-completion.sh
+fi
+
+if uname | grep -q Linux &> /dev/null; then
+  source /usr/share/fzf/key-bindings.zsh
+  source $HOME/.local/share/zinit/plugins/lincheney---fzf-tab-completion/zsh/fzf-zsh-completion.sh
+fi
 
 zle     -N            fzf-goto-dir-widget
 
