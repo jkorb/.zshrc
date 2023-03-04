@@ -1,2 +1,4 @@
 zinit/
 .zcompdump
+.zcompache/
+.zsh_sessions/
