@@ -16,6 +16,8 @@ export DOTDIR="$HOME/Dropbox/dots/minimal"
 export SUDO_EDITOR="nvr -s"
 export EDITOR="nvr -s"
 
-export SUDO_ASKPASS="$HOME/.local/bin/dmenu_sudo_askpass"
+if uname | grep -q Linux &> /dev/null; then
+  export SUDO_ASKPASS="$HOME/.local/bin/dmenu_sudo_askpass"
+fi
 
 export BROWSER='brave-launcher'
