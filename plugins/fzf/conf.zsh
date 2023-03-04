@@ -37,7 +37,7 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
-if uname | grep -q Linux &> /dev/null; then
+if uname | grep -q Darwin &> /dev/null; then
   source /opt/homebrew/Cellar/fzf/$(fzf --version | cut -d " " -f 1)/shell/key-bindings.zsh
   source $HOME/.local/share/zinit/plugins/lincheney---fzf-tab-completion/zsh/fzf-zsh-completion.sh
 fi
